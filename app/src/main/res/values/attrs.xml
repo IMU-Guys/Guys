@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ToneProcessView">
+        <attr name="highlight_color" format="color" />
+        <attr name="normal_color" format="color" />
+        <attr name="max_tone" format="integer" />
+        <attr name="stroke_width" format="dimension" />
+        <attr name="interval" format="dimension" />
+        <attr name="radius" format="dimension" />
+    </declare-styleable>
+</resources>

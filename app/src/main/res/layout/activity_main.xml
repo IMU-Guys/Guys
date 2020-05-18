@@ -6,13 +6,32 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <com.example.guys.MarqueeTextView
+        android:id="@+id/tv"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:ellipsize="marquee"
+        android:focusable="true"
+        android:marqueeRepeatLimit="1"
+        android:singleLine="true"
+        android:text="你哈哈素海风的雅思 u 辅以无法预期翻译啊 u 短发"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <com.example.guys.ToneProcessView
+
+        android:layout_width="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="31dp"
+        android:background="@color/colorPrimary"
+        app:highlight_color="#FFC421"
+        app:interval="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:normal_color="#000000" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
