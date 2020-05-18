@@ -1,4 +1,4 @@
-package com.example.guys
+package com.bytedance.android.live.broadcast.dialog.ktv.view
 
 import android.content.Context
 import android.graphics.Canvas
@@ -6,6 +6,7 @@ import android.graphics.Paint
 import android.graphics.RectF
 import android.util.AttributeSet
 import android.view.View
+import com.example.guys.R
 
 /**
  * Created by liujiannan on 2020-05-17
@@ -80,24 +81,32 @@ class ToneProcessView @JvmOverloads constructor(
     }
 
     public fun increaseTone() {
-        currentTone++
-        invalidate()
+        if (checkState(currentTone + 1)) {
+            currentTone++
+            invalidate()
+        }
     }
 
     public fun decreaseTone() {
-        currentTone--
-        invalidate()
+        if (checkState(currentTone - 1)) {
+            currentTone--
+            invalidate()
+        }
     }
 
     public fun setTone(value: Int) {
-        currentTone = value
-        invalidate()
+        if(checkState(value)) {
+            currentTone = value
+            invalidate()
+        }
     }
 
-    private fun checkState() {
-        if (currentTone < MIN_TONE || currentTone > maxTone) {
-            throw IllegalStateException("tone must be a value in [$MIN_TONE, $maxTone] ")
+    private fun checkState(targetTone: Int): Boolean {
+        if (targetTone < MIN_TONE || targetTone > maxTone) {
+            IllegalStateException("tone must be a value in [$MIN_TONE, $maxTone] ").printStackTrace()
+            return false
         }
+        return true
     }
 
     public fun getCurrentTone(): Int {
